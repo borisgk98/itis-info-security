@@ -103,6 +103,20 @@ public class DiffieHellmanHelper {
         return  new SecretKeySpec(Arrays.copyOf(sha.digest(A.modPow(b, p).toByteArray()), len), keyAlgorithm);
     }
 
+    @SneakyThrows // SHA-1 and SHA-256 are guaranteed to be available by the Java platform.
+    public static SecretKeySpec generateSymmetricKey(BigInteger A, BigInteger b, BigInteger p) {
+        int len = 32;
+        MessageDigest sha = MessageDigest.getInstance("SHA-256");
+        return  new SecretKeySpec(Arrays.copyOf(sha.digest(A.modPow(b, p).toByteArray()), len), "AES");
+    }
+
+    @SneakyThrows // SHA-1 and SHA-256 are guaranteed to be available by the Java platform.
+    public static SecretKeySpec generateSymmetricKey(BigInteger key) {
+        int len = 32;
+        MessageDigest sha = MessageDigest.getInstance("SHA-256");
+        return  new SecretKeySpec(Arrays.copyOf(sha.digest(key.toByteArray()), len), "AES");
+    }
+
     IvParameterSpec  getFreshIV() {
         byte[] iv = new byte[16];
         secRandGen.nextBytes(iv); /* Generate a secure random IV */

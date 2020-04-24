@@ -1,5 +1,10 @@
 package ru.kpfu.itis.borisgk98.infosecurity.cryptopals;
 
+import ru.kpfu.itis.borisgk98.infosecurity.cryptopals.helpers.BinaryMessage;
+import ru.kpfu.itis.borisgk98.infosecurity.cryptopals.helpers.Client;
+import ru.kpfu.itis.borisgk98.infosecurity.cryptopals.helpers.Message;
+import ru.kpfu.itis.borisgk98.infosecurity.cryptopals.helpers.TextMessage;
+
 import java.math.BigInteger;
 
 public class Utils {
@@ -46,6 +51,17 @@ public class Utils {
         }
         BigInteger res = powMod(a, b.divide(BigInteger.TWO), mod);
         return (b.mod(BigInteger.TWO).equals(BigInteger.ONE) ? a : BigInteger.ONE).multiply(res).multiply(res).mod(mod);
+    }
+
+
+
+    public static void processDecMess(Client to, byte[] data, Message message) {
+        if (message instanceof TextMessage) {
+            to.getReceivedMessages().add(new TextMessage(new String(data)));
+        }
+        else {
+            to.getReceivedMessages().add(new BinaryMessage(data));
+        }
     }
 
 }
