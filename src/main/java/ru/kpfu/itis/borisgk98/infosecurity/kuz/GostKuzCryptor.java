@@ -1,3 +1,5 @@
+package ru.kpfu.itis.borisgk98.infosecurity.kuz;
+
 public class GostKuzCryptor implements BlockCryptor {
 
     private final byte[] key1;

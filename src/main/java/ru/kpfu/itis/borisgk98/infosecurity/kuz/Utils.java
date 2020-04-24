@@ -1,3 +1,5 @@
+package ru.kpfu.itis.borisgk98.infosecurity.kuz;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

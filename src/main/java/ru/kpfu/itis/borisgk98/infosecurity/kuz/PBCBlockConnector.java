@@ -1,3 +1,5 @@
+package ru.kpfu.itis.borisgk98.infosecurity.kuz;
+
 import javax.xml.bind.DatatypeConverter;
 import java.util.ArrayList;
 import java.util.List;

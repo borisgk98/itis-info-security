@@ -1,3 +1,5 @@
+package ru.kpfu.itis.borisgk98.infosecurity.kuz;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

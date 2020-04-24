@@ -1,3 +1,5 @@
+package ru.kpfu.itis.borisgk98.infosecurity.kuz;
+
 public class SimpleCryptor implements Cryptor {
 
     private final BlockCryptor blockCryptor;

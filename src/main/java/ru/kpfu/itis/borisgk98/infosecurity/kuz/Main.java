@@ -1,6 +1,6 @@
+package ru.kpfu.itis.borisgk98.infosecurity.kuz;
+
 import javax.xml.bind.DatatypeConverter;
-import java.util.function.Consumer;
-import java.util.regex.Matcher;
 import java.util.stream.Stream;
 
 public class Main {

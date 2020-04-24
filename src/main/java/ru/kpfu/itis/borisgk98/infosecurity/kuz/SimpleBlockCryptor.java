@@ -1,3 +1,5 @@
+package ru.kpfu.itis.borisgk98.infosecurity.kuz;
+
 public class SimpleBlockCryptor implements BlockCryptor {
     @Override
     public int getBlockSize() {
