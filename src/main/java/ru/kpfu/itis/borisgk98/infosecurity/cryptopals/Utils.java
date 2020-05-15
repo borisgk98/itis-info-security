@@ -3,6 +3,7 @@ package ru.kpfu.itis.borisgk98.infosecurity.cryptopals;
 import ru.kpfu.itis.borisgk98.infosecurity.cryptopals.helpers.BinaryMessage;
 import ru.kpfu.itis.borisgk98.infosecurity.cryptopals.helpers.Client;
 import ru.kpfu.itis.borisgk98.infosecurity.cryptopals.helpers.Message;
+import ru.kpfu.itis.borisgk98.infosecurity.cryptopals.helpers.RSAHelper;
 import ru.kpfu.itis.borisgk98.infosecurity.cryptopals.helpers.TextMessage;
 
 import java.math.BigInteger;

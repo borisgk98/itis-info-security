@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 import static java.math.BigInteger.ONE;
+import static ru.kpfu.itis.borisgk98.infosecurity.cryptopals.Utils.isOdd;
 
 public class RSAHelper {
     @Data
