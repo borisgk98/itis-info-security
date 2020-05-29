@@ -1,14 +1,18 @@
 package ru.kpfu.itis.borisgk98.infosecurity.kuz;
 
+import lombok.Getter;
+
 public class GostKuzCryptor implements BlockCryptor {
 
-    private final byte[] key1;
-    private final byte[] key2;
+    public final byte[] key1;
+    public final byte[] key2;
 
     // массив для хранения констант
-    private byte[][] iter_C = new byte[32][16];
+    @Getter
+    public byte[][] iter_C = new byte[32][16];
     // массив для хранения ключей
-    private byte[][] iter_key = new byte[10][64];
+    @Getter
+    public byte[][] iter_key = new byte[10][64];
 
     public GostKuzCryptor(byte[] key1, byte[] key2) {
         this.key1 = key1;
@@ -97,7 +101,7 @@ public class GostKuzCryptor implements BlockCryptor {
     };
 
     // функция X
-    static private byte[] X(byte[] a, byte[] b)
+    static public byte[] X(byte[] a, byte[] b)
     {
         int i;
         byte[] c = new byte[BLOCK_SIZE];
@@ -107,7 +111,7 @@ public class GostKuzCryptor implements BlockCryptor {
     }
 
     // Функция S
-    static private byte[] S(byte[] in_data)
+    static public byte[] S(byte[] in_data)
     {
         int i;
         byte[] out_data = new byte[in_data.length];
@@ -124,7 +128,7 @@ public class GostKuzCryptor implements BlockCryptor {
     }
 
     // умножение в поле Галуа
-    static private byte GFMul(byte a, byte b)
+    static public byte GFMul(byte a, byte b)
     {
         byte c = 0;
         byte hi_bit;
@@ -143,7 +147,7 @@ public class GostKuzCryptor implements BlockCryptor {
     }
 
     // функция R сдвигает данные и реализует уравнение, представленное для расчета L-функции
-    static private byte[] R(byte[] state)
+    static public byte[] R(byte[] state)
     {
         int i;
         byte a_15 = 0;
@@ -160,7 +164,7 @@ public class GostKuzCryptor implements BlockCryptor {
         return internal;
     }
 
-    static private byte[] L(byte[] in_data)
+    static public byte[] L(byte[] in_data)
     {
         int i;
         byte[] out_data = new byte[in_data.length];
@@ -174,7 +178,7 @@ public class GostKuzCryptor implements BlockCryptor {
     }
 
     // функция S^(-1)
-    static private byte[] reverseS(byte[] in_data)
+    static public byte[] reverseS(byte[] in_data)
     {
         int i;
         byte[] out_data = new byte[in_data.length];
@@ -190,7 +194,7 @@ public class GostKuzCryptor implements BlockCryptor {
         return out_data;
     }
 
-    static private byte[] reverseR(byte[] state)
+    static public byte[] reverseR(byte[] state)
     {
         int i;
         byte a_0;
@@ -205,7 +209,7 @@ public class GostKuzCryptor implements BlockCryptor {
         return internal;
     }
 
-    static private byte[] reverseL(byte[] in_data)
+    static public byte[] reverseL(byte[] in_data)
     {
         int i;
         byte[] out_data = new byte[in_data.length];
@@ -218,7 +222,7 @@ public class GostKuzCryptor implements BlockCryptor {
     }
 
     // функция, выполняющая преобразования ячейки Фейстеля
-    static private byte[][] F(byte[] in_key_1, byte[] in_key_2, byte[] iter_const)
+    static public byte[][] F(byte[] in_key_1, byte[] in_key_2, byte[] iter_const)
     {
         byte[] internal;
         byte[] out_key_2 = in_key_1;
@@ -233,7 +237,7 @@ public class GostKuzCryptor implements BlockCryptor {
     }
 
     // функция расчета раундовых ключей
-    private void computeKeys(byte[] key_1, byte[] key_2)
+    public void computeKeys(byte[] key_1, byte[] key_2)
     {
         int i;
 
@@ -261,7 +265,7 @@ public class GostKuzCryptor implements BlockCryptor {
     }
 
     // функция расчета констант
-    private void getC()
+    public void getC()
     {
         int i;
         byte[][] iter_num = new byte[32][16];
